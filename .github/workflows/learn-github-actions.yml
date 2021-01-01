@@ -1,8 +1,13 @@
 name: learn-github-actions
 on: [push]
 jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://alpine:3.8
   check-bats-version:
     runs-on: ubuntu-latest
+    if: false # always skip job
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -10,6 +15,7 @@ jobs:
       - run: bats -v
   setup-nodejs-version:
     runs-on: ubuntu-latest
+    if: false # always skip job
     steps:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.4
