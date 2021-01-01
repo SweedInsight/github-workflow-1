@@ -15,7 +15,12 @@ jobs:
         uses: actions/setup-node@v2.1.4
         with:
           node-version: 12.x
-      - name: locale action
+name: locale action
+on: [push]
+jobs:
+  try-local-action:
+    runs-on: ubuntu-latest
+    steps:
       # This step checks out a copy of your repository.
       - uses: actions/checkout@v2
       - uses: ./.github/actions/hello-world-action
